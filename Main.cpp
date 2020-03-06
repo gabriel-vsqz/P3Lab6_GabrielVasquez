@@ -2,6 +2,7 @@
 #include "Binario.hpp"
 #include "Hexadecimal.hpp"
 #include "Octal.hpp"
+#include "Decimal.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,28 +19,86 @@ void printNumbers() {
     } 
 }
 
+bool checkBinary(string n) {
+    int cont = 0;
+    for (int i = 0; i < n.size() - 1; i++) {
+        if (n[i] == '1' || n[i] == '0') {
+            cont++;
+        }
+    }
+    if (n[n.size() - 1] == 'b' && cont == n.size() - 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool checkOctal(string n) {
+    int cont = 0;
+    for (int i = 2; i < n.size(); i++) {
+        if (n[i] == '0' || n[i] == '1' || n[i] == '2' || n[i] == '3' || n[i] == '4' || n[i] == '5' || n[i] == '6' || n[i] == '7') {
+            cont++;
+        }
+    }
+    if (n[0] == '0' && n[1] == 'c' && cont == n.size() - 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool checkHexadecimal(string n) {
+    int cont = 0;
+    for (int i = 2; i < n.size(); i++) {
+        if (n[i] == '0' || n[i] == '1' || n[i] == '2' || n[i] == '3' || n[i] == '4' || n[i] == '5' || n[i] == '6' || n[i] == '7' || n[i] == '8' ||
+            n[i] == '9' || n[i] == 'A' || n[i] == 'B' || n[i] == 'C' || n[i] == 'D' || n[i] == 'E' || n[i] == 'F') {
+            cont++;
+        }
+    }
+    if (n[0] == '0' && n[1] == 'x' && cont == n.size() - 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool checkDecimal(string n) {
+    int cont = 0;
+    for (int i = 0; i < n.size(); i++) {
+        if (n[i] == '0' || n[i] == '1' || n[i] == '2' || n[i] == '3' || n[i] == '4' || n[i] == '5' || n[i] == '6' || n[i] == '7' || n[i] == '8' ||
+            n[i] == '9') {
+            cont++;
+        }
+    }
+    if (cont == n.size()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void verifyType(string n, int x) {
     switch (x) {
         case 1: {
-            if (n[n.size() - 1] == 'b') {
+            if (checkBinary(n)) {
                 type1 = "Binario";
-            } else if (n[0] == '0' && n[1] == 'c') {
+            } else if (checkOctal(n)) {
                 type1 = "Octal";
-            } else if (n[0] == '0' && n[1] == 'x') {
+            } else if (checkHexadecimal(n)) {
                 type1 = "Hexadecimal";
-            } else {
+            } else if (checkDecimal(n)) {
                 type1 = "Decimal";
             }
         } break;
 
         case 2: {
-            if (n[n.size() - 1] == 'b') {
+            if (checkBinary(n)) {
                 type2 = "Binario";
-            } else if (n[0] == '0' && n[1] == 'c') {
+            } else if (checkOctal(n)) {
                 type2 = "Octal";
-            } else if (n[0] == '0' && n[1] == 'x') {
+            } else if (checkHexadecimal(n)) {
                 type2 = "Hexadecimal";
-            } else {
+            } else if (checkDecimal(n)) {
                 type2 = "Decimal";
             }
         } break;
@@ -58,7 +117,11 @@ int main() {
                 string numero;
                 cout << "Ingrese un número: ";
                 cin >> numero;
-                numeros.push_back(numero);
+                if (checkHexadecimal(numero) || checkOctal(numero) || checkDecimal(numero) || checkBinary(numero)) {
+                    numeros.push_back(numero);
+                } else {
+                    cout << "El número que ingresó no representa ninguna forma de las formas: Decimal, Binario, Octal, Hexadecimal" << endl;
+                }
             } break;
 
             case 2: {
@@ -76,6 +139,31 @@ int main() {
                 cout << "1: " << type1 << endl;
                 verifyType(numeros.at(pnum2), 2);
                 cout << "2: " << type2 << endl;
+                int opcion2;
+                do {
+                    cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";
+                    cin >> opcion2;
+                    while (opcion2 < 1 && opcion2 > 4) {
+                        cout << "Debe elegir entre una de las opciones indicadas" << endl;
+                        cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";
+                        cin >> opcion2;
+                    }
+                    switch (opcion2) {
+                        case 1: {
+                            
+                        } break;
+                        
+                        case 2: {
+
+                        } break;
+
+                        case 3: {
+
+                        } break;
+
+                        case 4: {} break;
+                    }
+                } while(opcion2 != 4);
             } break;
 
             case 4: {

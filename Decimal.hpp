@@ -5,9 +5,9 @@
 
 using namespace std;
 
-class Hexadecimal : public Numero {
+class Decimal : public Numero {
     protected:
-        Hexadecimal(string);
+        Decimal(string);
     public:
         string toString();
         Numero operator+(Numero);

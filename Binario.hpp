@@ -10,4 +10,7 @@ class Binario : public Numero {
         Binario(string);
     public:
         string toString();
+        Numero operator+(Numero);
+        Numero operator-(Numero);
+        Numero operator*(Numero);
 };
