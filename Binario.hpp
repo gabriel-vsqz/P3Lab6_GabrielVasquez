@@ -6,9 +6,8 @@
 using namespace std;
 
 class Binario : public Numero {
-    protected:
-        Binario(string);
     public:
+        Binario(string);
         string toString();
         Numero operator+(Numero);
         Numero operator-(Numero);

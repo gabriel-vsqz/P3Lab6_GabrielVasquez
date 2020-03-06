@@ -8,7 +8,7 @@ Decimal :: Decimal(string num) : Numero(num) {
 }
 
 string Decimal :: toString() {
-    
+    return Numero::numero;
 }
 
 Numero Decimal :: operator+(Numero n) {

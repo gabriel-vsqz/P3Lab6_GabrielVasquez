@@ -8,7 +8,7 @@ Numero::Numero(string num) {
 }
 
 string Numero :: toString() {
-    return "";
+    return numero;
 }
 
 Numero Numero :: operator+(Numero n){

@@ -6,9 +6,8 @@
 using namespace std;
 
 class Octal : public Numero {
-    protected:
-        Octal(string);
     public:
+        Octal(string);
         string toString();
         Numero operator+(Numero);
         Numero operator-(Numero);

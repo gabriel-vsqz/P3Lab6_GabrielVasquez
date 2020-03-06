@@ -8,7 +8,7 @@ Octal :: Octal(string num) : Numero(num) {
 }
 
 string Octal :: toString() {
-    
+    return Numero::numero;
 }
 
 Numero Octal :: operator+(Numero n) {

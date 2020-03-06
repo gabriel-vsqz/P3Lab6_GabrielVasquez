@@ -8,6 +8,7 @@
 #include <vector>
 
 vector<string> numeros;
+vector<Numero> numeros2;
 string type1, type2;
 
 using namespace std;
@@ -105,6 +106,35 @@ void verifyType(string n, int x) {
     }
 }
 
+void crearNumeros(string n1, string n2) {
+    if (checkBinary(n1)) {
+        Binario b(n1);
+        numeros2[0] = b;
+    } else if (checkOctal(n1)) {
+        Octal o(n1);
+        numeros2[0] = o;
+    } else if (checkHexadecimal(n1)) {
+        Hexadecimal h(n1);
+        numeros2[0] = h;
+    } else if (checkDecimal(n1)) {
+        Decimal d(n1);
+        numeros2[0] = d;
+    }
+    if (checkBinary(n2)) {
+        Binario b2(n2);
+        numeros2[1] = b2;
+    } else if (checkOctal(n2)) {
+        Octal o2(n2);
+        numeros2[1] = o2;
+    } else if (checkHexadecimal(n2)) {
+        Hexadecimal h2(n2);
+        numeros2[1] = h2;
+    } else if (checkDecimal(n2)) {
+        Decimal d2(n2);
+        numeros2[1] = d2;
+    }
+}
+
 int main() {
     bool pass = true;
     while (pass) {
@@ -136,9 +166,8 @@ int main() {
                 cout << "Elija Número 2: ";
                 cin >> pnum2;
                 verifyType(numeros.at(pnum1), 1);
-                cout << "1: " << type1 << endl;
                 verifyType(numeros.at(pnum2), 2);
-                cout << "2: " << type2 << endl;
+                crearNumeros(numeros.at(pnum1), numeros.at(pnum2));
                 int opcion2;
                 do {
                     cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";

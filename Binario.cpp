@@ -8,6 +8,7 @@ Binario :: Binario(string num) : Numero(num) {
 }
 
 string Binario :: toString() {
+    return Numero::numero;
 }
 
 Numero Binario :: operator+(Numero n) {

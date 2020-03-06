@@ -6,9 +6,8 @@
 using namespace std;
 
 class Decimal : public Numero {
-    protected:
-        Decimal(string);
     public:
+        Decimal(string);
         string toString();
         Numero operator+(Numero);
         Numero operator-(Numero);
