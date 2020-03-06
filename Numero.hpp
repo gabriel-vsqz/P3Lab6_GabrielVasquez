@@ -8,5 +8,5 @@ class Numero {
         string numero;
         Numero(string);
     public:
-        virtual string toString();
+        virtual string toString() = 0;
 };
