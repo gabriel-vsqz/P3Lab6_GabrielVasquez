@@ -11,14 +11,14 @@ string Hexadecimal :: toString() {
     return Numero::numero;
 }
 
-Numero Hexadecimal ::operator+(Numero n) {
+int Hexadecimal :: operator+(Numero n) {
+    
+}
+
+int Hexadecimal :: operator-(Numero n) {
 
 }
 
-Numero Hexadecimal :: operator-(Numero n) {
-
-}
-
-Numero Hexadecimal :: operator*(Numero n) {
+int Hexadecimal :: operator*(Numero n) {
     
 }

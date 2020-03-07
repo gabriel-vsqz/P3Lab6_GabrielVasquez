@@ -8,8 +8,13 @@ class Numero {
         string numero;
         Numero(string);
     public:
+        Numero();
+        virtual bool checkOctal(string);
+        virtual bool checkHexadecimal(string);
+        virtual bool checkDecimal(string);
+        virtual bool checkBinary(string);
         virtual string toString();
-        virtual Numero operator+(Numero);
-        virtual Numero operator-(Numero);
-        virtual Numero operator*(Numero);
+        virtual int operator+(Numero);
+        virtual int operator-(Numero);
+        virtual int operator*(Numero);
 };

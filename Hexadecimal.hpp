@@ -9,7 +9,7 @@ class Hexadecimal : public Numero {
     public:
         Hexadecimal(string);
         string toString();
-        Numero operator+(Numero);
-        Numero operator-(Numero);
-        Numero operator*(Numero);
+        int operator+(Numero);
+        int operator-(Numero);
+        int operator*(Numero);
 };

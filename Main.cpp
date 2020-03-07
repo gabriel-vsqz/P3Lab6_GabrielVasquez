@@ -8,7 +8,7 @@
 #include <vector>
 
 vector<string> numeros;
-vector<Numero> numeros2;
+Numero actual1, actual2;
 string type1, type2;
 
 using namespace std;
@@ -109,29 +109,54 @@ void verifyType(string n, int x) {
 void crearNumeros(string n1, string n2) {
     if (checkBinary(n1)) {
         Binario b(n1);
-        numeros2[0] = b;
+        actual1 = b;
     } else if (checkOctal(n1)) {
         Octal o(n1);
-        numeros2[0] = o;
+        actual1 = o;
     } else if (checkHexadecimal(n1)) {
         Hexadecimal h(n1);
-        numeros2[0] = h;
+        actual1 = h;
     } else if (checkDecimal(n1)) {
         Decimal d(n1);
-        numeros2[0] = d;
+        actual1 = d;
     }
     if (checkBinary(n2)) {
         Binario b2(n2);
-        numeros2[1] = b2;
+        actual2 = b2;
     } else if (checkOctal(n2)) {
         Octal o2(n2);
-        numeros2[1] = o2;
+        actual2 = o2;
     } else if (checkHexadecimal(n2)) {
         Hexadecimal h2(n2);
-        numeros2[1] = h2;
+        actual2 = h2;
     } else if (checkDecimal(n2)) {
         Decimal d2(n2);
-        numeros2[1] = d2;
+        actual2 = d2;
+    }
+}
+
+void convertirNumeros() {
+    if (type1 == "Binario") {
+        cout << stoi(actual1.toString(), nullptr, 2) << endl;
+    }
+    if (type1 == "Decimal") {
+        cout << stoi(actual1.toString()) << endl;
+    }
+    if (type1 == "Hexadecimal") {
+        string temporal = "";
+        for (int i = 2; i < actual1.toString().size(); i++) {
+            temporal += actual1.toString()[i];
+        }
+        cout << temporal << endl;
+        cout << stoi(temporal, nullptr, 16);
+    }
+    if (type1 == "Octal") {
+        string temporal = "";
+        for (int i = 2; i < actual1.toString().size(); i++) {
+            temporal += actual1.toString()[i];
+        }
+        cout << temporal << endl;
+        cout << stoi(temporal,nullptr,8);
     }
 }
 
@@ -165,9 +190,10 @@ int main() {
                 cin >> pnum1;
                 cout << "Elija Número 2: ";
                 cin >> pnum2;
-                verifyType(numeros.at(pnum1), 1);
-                verifyType(numeros.at(pnum2), 2);
+                verifyType(numeros[pnum1], 1);
+                verifyType(numeros[pnum2], 2);
                 crearNumeros(numeros.at(pnum1), numeros.at(pnum2));
+                convertirNumeros();
                 int opcion2;
                 do {
                     cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";
@@ -179,15 +205,42 @@ int main() {
                     }
                     switch (opcion2) {
                         case 1: {
-                            
+                            cout << "\n--- Suma ---\n";
+                            if (type1 == "Decimal") {
+                                cout << "La respuesta en Decimal es: " << actual1 + actual2 << endl;
+                            } else if (type1 == "Binario") {
+                                cout << "La respuesta en Binario es: " << actual1 + actual2 << endl;
+                            } else if (type1 == "Hexadecimal") {
+                                cout << "La respuesta en Hexadecimal es: " << actual1 + actual2 << endl;
+                            } else if (type1 == "Octal") {
+                                cout << "La respuesta en Octal es: " << actual1 + actual2 << endl;
+                            }
                         } break;
                         
                         case 2: {
-
+                            cout << "\n--- Resta ---\n";
+                            if (type1 == "Decimal") {
+                                cout << "La respuesta en Decimal es: " << actual1 - actual2 << endl;
+                            } else if (type1 == "Binario") {
+                                cout << "La respuesta en Binario es: " << actual1 - actual2 << endl;
+                            } else if (type1 == "Hexadecimal") {
+                                cout << "La respuesta en Hexadecimal es: " << actual1 - actual2 << endl;
+                            } else if (type1 == "Octal") {
+                                cout << "La respuesta en Octal es: " << actual1 - actual2 << endl;
+                            }
                         } break;
 
                         case 3: {
-
+                            cout << "\n--- Multiplicación ---\n";
+                            if (type1 == "Decimal") {
+                                cout << "La respuesta en Decimal es: " << actual1 * actual2 << endl;
+                            } else if (type1 == "Binario") {
+                                cout << "La respuesta en Binario es: " << actual1 * actual2 << endl;
+                            } else if (type1 == "Hexadecimal") {
+                                cout << "La respuesta en Hexadecimal es: " << actual1 * actual2 << endl;
+                            } else if (type1 == "Octal") {
+                                cout << "La respuesta en Octal es: " << actual1 * actual2 << endl;
+                            }
                         } break;
 
                         case 4: {} break;

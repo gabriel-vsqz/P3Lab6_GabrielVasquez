@@ -11,14 +11,14 @@ string Binario :: toString() {
     return Numero::numero;
 }
 
-Numero Binario :: operator+(Numero n) {
+int Binario :: operator+(Numero& n) {
     
 }
 
-Numero Binario :: operator-(Numero n) {
+int Binario :: operator-(Numero n) {
 
 }
 
-Numero Binario :: operator*(Numero n) {
+int Binario :: operator*(Numero n) {
 
 }

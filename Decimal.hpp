@@ -9,7 +9,11 @@ class Decimal : public Numero {
     public:
         Decimal(string);
         string toString();
-        Numero operator+(Numero);
-        Numero operator-(Numero);
-        Numero operator*(Numero);
+        int operator+(Numero);
+        int operator-(Numero);
+        int operator*(Numero);
+        bool checkOctal(string);
+        bool checkHexadecimal(string);
+        bool checkDecimal(string);
+        bool checkBinary(string);
 };

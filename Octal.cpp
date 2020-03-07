@@ -11,14 +11,14 @@ string Octal :: toString() {
     return Numero::numero;
 }
 
-Numero Octal :: operator+(Numero n) {
+int Octal :: operator+(Numero n) {
     
 }
 
-Numero Octal :: operator-(Numero n) {
+int Octal :: operator-(Numero n) {
 
 }
 
-Numero Octal :: operator*(Numero n) {
+int Octal :: operator*(Numero n) {
 
 }
