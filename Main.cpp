@@ -179,6 +179,19 @@ void convertirNumeros() {
     }
 }
 
+string DecBin(int x) {
+    string temp = "", binario = "";
+    while (x >= 1) {
+        temp += to_string(x%2);
+        x /= 2;
+    }
+    for (int i = temp.size() - 1; i >= 0; i--) {
+        binario += temp[i];
+    }
+    binario += "b";
+    return binario;
+}
+
 int main() {
     bool pass = true;
     while (pass) {
@@ -212,7 +225,6 @@ int main() {
                 verifyType(numeros[pnum1], 1);
                 verifyType(numeros[pnum2], 2);
                 crearNumeros(numeros.at(pnum1), numeros.at(pnum2));
-                //convertirNumeros();
                 int opcion2;
                 do {
                     cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";
@@ -228,7 +240,9 @@ int main() {
                             if (type1 == "Decimal") {
                                 cout << "La respuesta en Decimal es: " << actual1 + actual2 << endl;
                             } else if (type1 == "Binario") {
-                                cout << "La respuesta en Binario es: " << actual1 + actual2 << endl;
+                                int x = actual1 + actual2;
+                                string y = DecBin(x);
+                                cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
                                 cout << "La respuesta en Hexadecimal es: " << actual1 + actual2 << endl;
                             } else if (type1 == "Octal") {
@@ -241,7 +255,9 @@ int main() {
                             if (type1 == "Decimal") {
                                 cout << "La respuesta en Decimal es: " << actual1 - actual2 << endl;
                             } else if (type1 == "Binario") {
-                                cout << "La respuesta en Binario es: " << actual1 - actual2 << endl;
+                                int x = actual1 - actual2;
+                                string y = DecBin(x);
+                                cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
                                 cout << "La respuesta en Hexadecimal es: " << actual1 - actual2 << endl;
                             } else if (type1 == "Octal") {
@@ -254,7 +270,9 @@ int main() {
                             if (type1 == "Decimal") {
                                 cout << "La respuesta en Decimal es: " << actual1 * actual2 << endl;
                             } else if (type1 == "Binario") {
-                                cout << "La respuesta en Binario es: " << actual1 * actual2 << endl;
+                                int x = actual1 * actual2;
+                                string y = DecBin(x);
+                                cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
                                 cout << "La respuesta en Hexadecimal es: " << actual1 * actual2 << endl;
                             } else if (type1 == "Octal") {
