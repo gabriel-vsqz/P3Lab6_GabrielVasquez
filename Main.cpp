@@ -150,7 +150,7 @@ string DecBin(int x) {
 
 string DecHex(int x) {
     vector<int> temp;
-    string hexadecimal = "Ox";
+    string hexadecimal = "0x";
 
    while (x >= 1) {
         temp.push_back(x%16);
@@ -182,6 +182,18 @@ string DecHex(int x) {
         }
     }
     return hexadecimal;
+}
+
+string DecOct(int x) {
+    string temp = "", octal = "0c";
+    while (x >= 1) {
+        temp += to_string(x%8);
+        x /= 8;
+    }
+    for (int i = temp.size() - 1; i >= 0; i--) {
+        octal += temp[i];
+    }
+    return octal;
 }
 
 int main() {
@@ -240,7 +252,9 @@ int main() {
                                 string y = DecHex(x);
                                 cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
-                                cout << "La respuesta en Octal es: " << actual1 + actual2 << endl;
+                                int x = actual1 + actual2;
+                                string y = DecOct(x);
+                                cout << "La respuesta en Octal es: " << y << endl;
                             }
                         } break;
                         
@@ -257,7 +271,9 @@ int main() {
                                 string y = DecHex(x);
                                 cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
-                                cout << "La respuesta en Octal es: " << actual1 - actual2 << endl;
+                                int x = actual1 - actual2;
+                                string y = DecOct(x);
+                                cout << "La respuesta en Octal es: " << y << endl;
                             }
                         } break;
 
@@ -274,7 +290,9 @@ int main() {
                                 string y = DecHex(x);
                                 cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
-                                cout << "La respuesta en Octal es: " << actual1 * actual2 << endl;
+                                int x = actual1 * actual2;
+                                string y = DecOct(x);
+                                cout << "La respuesta en Octal es: " << y << endl;
                             }
                         } break;
 
