@@ -135,50 +135,6 @@ void crearNumeros(string n1, string n2) {
     }
 }
 
-void convertirNumeros() {
-    if (type1 == "Binario") {
-        cout << "En entero: " << stoi(actual1.toString(), nullptr, 2) << endl;
-    }
-    if (type1 == "Decimal") {
-        cout << "En entero: " << stoi(actual1.toString()) << endl;
-    }
-    if (type1 == "Hexadecimal") {
-        string temporal = "";
-        for (int i = 2; i < actual1.toString().size(); i++) {
-            temporal += actual1.toString()[i];
-        }
-        cout << "En entero: " << stoi(temporal, nullptr, 16);
-    }
-    if (type1 == "Octal") {
-        string temporal = "";
-        for (int i = 2; i < actual1.toString().size(); i++) {
-            temporal += actual1.toString()[i];
-        }
-        cout << "En entero: " << stoi(temporal,nullptr,8);
-    }
-
-    if (type2 == "Binario") {
-        cout << "En entero: " << stoi(actual2.toString(), nullptr, 2) << endl;
-    }
-    if (type2 == "Decimal") {
-        cout << "En entero: " << stoi(actual2.toString()) << endl;
-    }
-    if (type2 == "Hexadecimal") {
-        string temporal = "";
-        for (int i = 2; i < actual2.toString().size(); i++) {
-            temporal += actual1.toString()[i];
-        }
-        cout << "En entero: " << stoi(temporal, nullptr, 16);
-    }
-    if (type2 == "Octal") {
-        string temporal = "";
-        for (int i = 2; i < actual2.toString().size(); i++) {
-            temporal += actual2.toString()[i];
-        }
-        cout << "En entero: " << stoi(temporal,nullptr,8);
-    }
-}
-
 string DecBin(int x) {
     string temp = "", binario = "";
     while (x >= 1) {
@@ -190,6 +146,42 @@ string DecBin(int x) {
     }
     binario += "b";
     return binario;
+}
+
+string DecHex(int x) {
+    vector<int> temp;
+    string hexadecimal = "Ox";
+
+   while (x >= 1) {
+        temp.push_back(x%16);
+        x /= 16;
+    }
+    for (int i = temp.size() - 1; i >= 0; i--) {
+        switch (temp[i]) {
+            case 10: {
+                hexadecimal += "A";
+            } break;
+            case 11: {
+                hexadecimal += "B";
+            } break;
+            case 12: {
+                hexadecimal += "C";
+            } break;
+            case 13: {
+                hexadecimal += "D";
+            } break;
+            case 14: {
+                hexadecimal += "E";
+            } break;
+            case 15: {
+                hexadecimal += "F";
+            } break;
+            default: {
+                hexadecimal += to_string(temp[i]);
+            } break;
+        }
+    }
+    return hexadecimal;
 }
 
 int main() {
@@ -244,7 +236,9 @@ int main() {
                                 string y = DecBin(x);
                                 cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
-                                cout << "La respuesta en Hexadecimal es: " << actual1 + actual2 << endl;
+                                int x = actual1 + actual2;
+                                string y = DecHex(x);
+                                cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
                                 cout << "La respuesta en Octal es: " << actual1 + actual2 << endl;
                             }
@@ -259,7 +253,9 @@ int main() {
                                 string y = DecBin(x);
                                 cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
-                                cout << "La respuesta en Hexadecimal es: " << actual1 - actual2 << endl;
+                                int x = actual1 - actual2;
+                                string y = DecHex(x);
+                                cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
                                 cout << "La respuesta en Octal es: " << actual1 - actual2 << endl;
                             }
@@ -274,7 +270,9 @@ int main() {
                                 string y = DecBin(x);
                                 cout << "La respuesta en Binario es: " << y << endl;
                             } else if (type1 == "Hexadecimal") {
-                                cout << "La respuesta en Hexadecimal es: " << actual1 * actual2 << endl;
+                                int x = actual1 * actual2;
+                                string y = DecHex(x);
+                                cout << "La respuesta en Hexadecimal es: " << y << endl;
                             } else if (type1 == "Octal") {
                                 cout << "La respuesta en Octal es: " << actual1 * actual2 << endl;
                             }
