@@ -137,26 +137,45 @@ void crearNumeros(string n1, string n2) {
 
 void convertirNumeros() {
     if (type1 == "Binario") {
-        cout << stoi(actual1.toString(), nullptr, 2) << endl;
+        cout << "En entero: " << stoi(actual1.toString(), nullptr, 2) << endl;
     }
     if (type1 == "Decimal") {
-        cout << stoi(actual1.toString()) << endl;
+        cout << "En entero: " << stoi(actual1.toString()) << endl;
     }
     if (type1 == "Hexadecimal") {
         string temporal = "";
         for (int i = 2; i < actual1.toString().size(); i++) {
             temporal += actual1.toString()[i];
         }
-        cout << temporal << endl;
-        cout << stoi(temporal, nullptr, 16);
+        cout << "En entero: " << stoi(temporal, nullptr, 16);
     }
     if (type1 == "Octal") {
         string temporal = "";
         for (int i = 2; i < actual1.toString().size(); i++) {
             temporal += actual1.toString()[i];
         }
-        cout << temporal << endl;
-        cout << stoi(temporal,nullptr,8);
+        cout << "En entero: " << stoi(temporal,nullptr,8);
+    }
+
+    if (type2 == "Binario") {
+        cout << "En entero: " << stoi(actual2.toString(), nullptr, 2) << endl;
+    }
+    if (type2 == "Decimal") {
+        cout << "En entero: " << stoi(actual2.toString()) << endl;
+    }
+    if (type2 == "Hexadecimal") {
+        string temporal = "";
+        for (int i = 2; i < actual2.toString().size(); i++) {
+            temporal += actual1.toString()[i];
+        }
+        cout << "En entero: " << stoi(temporal, nullptr, 16);
+    }
+    if (type2 == "Octal") {
+        string temporal = "";
+        for (int i = 2; i < actual2.toString().size(); i++) {
+            temporal += actual2.toString()[i];
+        }
+        cout << "En entero: " << stoi(temporal,nullptr,8);
     }
 }
 
@@ -193,7 +212,7 @@ int main() {
                 verifyType(numeros[pnum1], 1);
                 verifyType(numeros[pnum2], 2);
                 crearNumeros(numeros.at(pnum1), numeros.at(pnum2));
-                convertirNumeros();
+                //convertirNumeros();
                 int opcion2;
                 do {
                     cout << "\n----- Operaciones -----\n1. Suma\n2. Resta\n3. Multiplicación\n4. Volver\n: ";

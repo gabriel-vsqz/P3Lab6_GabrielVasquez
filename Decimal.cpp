@@ -70,13 +70,70 @@ bool Decimal :: checkBinary(string n) {
 }
 
 int Decimal :: operator+(Numero n) {
-
+    int temporal;
+    if(checkBinary(n.toString())) {
+        temporal = stoi(n.toString(), nullptr, 2);
+    } else if(checkDecimal(n.toString())) {
+        temporal = stoi(n.toString());
+    } else if(checkHexadecimal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena, nullptr, 16);
+    } else if(checkOctal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena,nullptr,8);
+    }
+    int temporal2 = stoi(this -> numero);
+    return temporal2 + temporal;
 }
 
 int Decimal :: operator-(Numero n) {
-
+    int temporal;
+    if(checkBinary(n.toString())) {
+        temporal = stoi(n.toString(), nullptr, 2);
+    } else if(checkDecimal(n.toString())) {
+        temporal = stoi(n.toString());
+    } else if(checkHexadecimal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena, nullptr, 16);
+    } else if(checkOctal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena,nullptr,8);
+    }
+    int temporal2 = stoi(this -> numero);
+    return temporal2 - temporal;
 }
 
 int Decimal :: operator*(Numero n) {
-
+    int temporal;
+    if(checkBinary(n.toString())) {
+        temporal = stoi(n.toString(), nullptr, 2);
+    } else if(checkDecimal(n.toString())) {
+        temporal = stoi(n.toString());
+    } else if(checkHexadecimal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena, nullptr, 16);
+    } else if(checkOctal(n.toString())) {
+        string minicadena = "";
+        for (int i = 2; i < n.toString().size(); i++) {
+            minicadena += n.toString()[i];
+        }
+        temporal = stoi(minicadena,nullptr,8);
+    }
+    int temporal2 = stoi(this -> numero);
+    return temporal2 * temporal;
 }

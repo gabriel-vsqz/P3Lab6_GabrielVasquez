@@ -12,4 +12,8 @@ class Octal : public Numero {
         int operator+(Numero);
         int operator-(Numero);
         int operator*(Numero);
+        bool checkOctal(string);
+        bool checkHexadecimal(string);
+        bool checkDecimal(string);
+        bool checkBinary(string);
 };
