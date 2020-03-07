@@ -137,25 +137,45 @@ void crearNumeros(string n1, string n2) {
 
 string DecBin(int x) {
     string temp = "", binario = "";
+    
+    if (x < 0) {
+        x *= -1;
+        binario += "-";
+    }
+    if (x == 0)
+        binario += "0";
+    
     while (x >= 1) {
         temp += to_string(x%2);
         x /= 2;
     }
+
     for (int i = temp.size() - 1; i >= 0; i--) {
         binario += temp[i];
     }
+
     binario += "b";
     return binario;
 }
 
 string DecHex(int x) {
     vector<int> temp;
-    string hexadecimal = "0x";
+    string hexadecimal = "";
+
+    if (x < 0) {
+        x *= -1;
+        hexadecimal += "-0x";
+    } else if (x >= 0) {
+        hexadecimal += "0x";
+    }
+    if (x == 0)
+        hexadecimal += "0";
 
    while (x >= 1) {
         temp.push_back(x%16);
         x /= 16;
     }
+
     for (int i = temp.size() - 1; i >= 0; i--) {
         switch (temp[i]) {
             case 10: {
@@ -181,18 +201,31 @@ string DecHex(int x) {
             } break;
         }
     }
+
     return hexadecimal;
 }
 
 string DecOct(int x) {
-    string temp = "", octal = "0c";
+    string temp = "", octal = "";
+
+    if (x < 0) {
+        x *= -1;
+        octal += "-0c";
+    } else if (x >= 0) {
+        octal += "0c";
+    }
+    if (x == 0)
+        octal += "0";
+
     while (x >= 1) {
         temp += to_string(x%8);
         x /= 8;
     }
+
     for (int i = temp.size() - 1; i >= 0; i--) {
         octal += temp[i];
     }
+
     return octal;
 }
 
