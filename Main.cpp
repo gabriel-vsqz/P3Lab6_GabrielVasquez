@@ -22,12 +22,12 @@ void printNumbers() {
 
 bool checkBinary(string n) {
     int cont = 0;
-    for (int i = 0; i < n.size() - 1; i++) {
+    for (int i = 0; i <= n.size() - 2; i++) {
         if (n[i] == '1' || n[i] == '0') {
             cont++;
         }
     }
-    if (n[n.size() - 1] == 'b' && cont == n.size() - 1) {
+    if (n[n.size() - 1] == 'b' and cont == n.size() - 1) {
         return true;
     } else {
         return false;
@@ -241,7 +241,7 @@ int main() {
                 string numero;
                 cout << "Ingrese un número: ";
                 cin >> numero;
-                if (checkHexadecimal(numero) || checkOctal(numero) || checkDecimal(numero) || checkBinary(numero)) {
+                if (checkBinary(numero) || checkHexadecimal(numero) || checkOctal(numero) || checkDecimal(numero)) {
                     numeros.push_back(numero);
                 } else {
                     cout << "El número que ingresó no representa ninguna forma de las formas: Decimal, Binario, Octal, Hexadecimal" << endl;
